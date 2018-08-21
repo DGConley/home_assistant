@@ -1,0 +1,30 @@
+#
+# Main arguments, all optional
+#
+title: Doorbell Panel
+widget_dimensions: [120, 120]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+
+front_door_camera:
+    widget_type: camera
+    entity_picture: http://192.168.1.62:8123/api/camera_proxy/camera.front_door?token=c4cced6158f6d231e12717cde6c5ed291efccd7477652cd137600a836cca337d&api_password=66map109
+    refresh: 1
+
+doorbell_image:
+    title: Doorbell
+    widget_type: camera
+    entity_picture: http://192.168.1.62:8123/api/camera_proxy/camera.local_file?token=407cb07431c203365bc8a24c73d521ef345e76b91d458c977bc2dec70c1b5e59&api_password=66map109
+    refresh: 60
+
+layout:
+ - front_door_camera(4x4), doorbell_image(4x4)
+ -
+ -
+ -
+ - include: nav
